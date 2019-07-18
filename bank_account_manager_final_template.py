@@ -38,7 +38,7 @@ def create_account_table():
 
 
 def create_account(account):
-    print()
+    print("\nprocess name:", current_process().name)
     # here the argument account is an object of the class
     # basically an insert function
     # an account has name, ac_no, ac_type(savings / credits), balance
@@ -64,7 +64,7 @@ def deposit_in(acc_no, acc_type, amount):
     # add the amount to the balance
     # and all of it should be another process
     # process 2
-    print()
+    print("\nprocess name:", current_process().name)
     # enter the acc_no, acc_type and amount
     # only acc_no and acc_type are required
     conn = psycopg2.connect("dbname='accounts' user='postgres' password='cyant695' host='localhost' port='5432'")
@@ -88,7 +88,7 @@ def withdraw_out(acc_no, acc_type, amount):
     # subtract the amount from the balance
     # if and only if previous_balance >= amount_to_be_withdrawn
     # process 3
-    print()
+    print("\nprocess name:", current_process().name)
     # enter the acc_no, acc_type and amount
     # only the acc_no and acc_type are required
     conn = psycopg2.connect("dbname='accounts' user='postgres' password='cyant695' host='localhost' port='5432'")
@@ -112,7 +112,7 @@ def display_bal(acc_no):
     # retrieve the table
     # show the consumer_name and balance
     # process 4
-    print()
+    print("\nprocess name:", current_process().name)
     # display the costumer name and the balance
     conn = psycopg2.connect("dbname='accounts' user='postgres' password='cyant695' host='localhost' port='5432'")
     cur = conn.cursor()
@@ -188,3 +188,5 @@ if __name__ == '__main__':
         enquiry = input('Enquire Again? (y/n) ')
 
     print('Thanks for using our service :)')
+    
+ # done
