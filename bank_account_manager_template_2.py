@@ -4,7 +4,6 @@ import psycopg2
 # for using postgresql database
 
 
-
 # Data members:
 # 1) Name of the depositor
 # 2) Account number
@@ -49,21 +48,61 @@ def create_account(account):
     conn.close()
     # created an account
 
+
 def add_account_to_db(account):
+    # adding the account to the database
+    # here this will be a process
+    # process 1
     create_account(account)
 
 # now define separate functions for deposit, withdraw and display balance
 def deposit_in(c_name, acc_no, acc_type, amount):
     # get the values
+    # retrieve the table, update the values
+    # add the amount to the balance
+    # and all of it should be another process
+    # process 2
     print()
 
 
 def withdraw_out(c_name, acc_no, acc_type, amount):
+    # get the values
+    # retrieve the table, update the values
+    # subtract the amount from the balance
+    # if and only if previous_balance >= amount_to_be_withdrawn
+    # process 3
     print()
 
 
 def display_bal(acc_no):
+    # retrieve the table
+    # show the consumer_name and balance
+    # process 4
     print()
 
 
+# main function
+# this is the parent process
+# it works when
+if __name__ == '__main__':
 
+    processes = []
+    create_account_table()
+    print('table created')
+    enquiry = 'y'
+    while enquiry == 'y' or enquiry == 'Y':
+        print('\nbank_account_manager')
+        print('1. Create new account\n2. Deposit into account\n3. Withdraw from account\n4. Show balance')
+        choice = int(input('Enter your choice'))
+        if choice == 1:
+            print()
+        elif choice == 2:
+            print()
+        elif choice == 3:
+            print()
+        elif choice == 4:
+            print()
+        else:
+            print('Enter a valid choice...')
+        enquiry = input('Enquire Again? (y/n) ')
+    print('Thanks for using our service :)')
